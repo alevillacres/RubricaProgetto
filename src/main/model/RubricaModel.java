@@ -1,25 +1,19 @@
 package main.model;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Vector;
+
+import main.utils.PersistenceManager;
 
 public class RubricaModel {
     
     private Vector<Persona> listaPersone;
 	final private File informazioni = new File("src/resources/informazioni.txt");
 
-    public RubricaModel(Vector<Persona> listaPersone) {
-        this.listaPersone = listaPersone;
-		caricaInformazioni();
+    public RubricaModel() {
+        this.listaPersone = PersistenceManager.caricaInformazioni(informazioni);
     }
 
-    public void caricaInformazioni() {
-		
-	}
-    
     /**
 	 * @return the listaPersone
 	 */

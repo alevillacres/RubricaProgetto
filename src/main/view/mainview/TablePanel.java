@@ -1,4 +1,4 @@
-package main.view;
+package main.view.mainview;
 
 import java.awt.BorderLayout;
 import java.util.Vector;

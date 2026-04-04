@@ -2,21 +2,28 @@ package main.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.Vector;
 
 import main.model.Persona;
 
 public class PersistenceManager {
+
     public static Vector<Persona> caricaInformazioni(File informazioni){
         Vector<Persona> listaPersone = new Vector<>();
         
-        try (BufferedReader br = new BufferedReader(new FileReader(informazioni))){
+		if(!informazioni.exists()) {
+			return listaPersone;
+		}
 
-			String line;
+        try (Scanner scanner = new Scanner(informazioni)){
 
-			while((line = br.readLine()) != null){
+			while(scanner.hasNextLine()){
+
+				String line = scanner.nextLine();
 
 				if (line.trim().isEmpty()) continue;
 
@@ -24,12 +31,16 @@ public class PersistenceManager {
 
 				if(parti.length != 5) 
 					throw new IllegalArgumentException("Formato riga non valido (attesi 5 campi): " + line);
-
-				listaPersone.add(new Persona(parti[0], parti[1], parti[2], parti[3], Integer.parseInt(parti[4].trim())));
+				
+				String nome = parti[0].trim();
+				String cognome = parti[1].trim();
+				String indirizzo = parti[2].trim();
+				String telefono = parti[3].trim();
+				int eta = Integer.parseInt(parti[4].trim());
+				listaPersone.add(new Persona(nome, cognome, indirizzo, telefono, eta));
 			}
-			br.close();
             
-		} catch (IOException e) {
+		} catch (FileNotFoundException e) {
 			System.err.print("File non trovato: " + e.getMessage());
 		} catch (IllegalArgumentException e) {
 			System.err.println("Errore nei dati: " + e.getMessage());

@@ -1,4 +1,4 @@
-package main.view;
+package main.view.mainview;
 
 import java.time.Period;
 import java.util.Vector;
@@ -10,7 +10,7 @@ import main.model.Persona;
 public class TableModelPersona extends AbstractTableModel{
 
     private Vector<Persona> listaPersone;
-    private String[] nomiColonne = {"Nome", "Cognome", "Indirizzo", "Telefono", "Eta"};
+    private String[] nomiColonne = {"Nome", "Cognome", "Telefono"};
     
     public TableModelPersona() {
         
@@ -21,7 +21,6 @@ public class TableModelPersona extends AbstractTableModel{
     }
 
     
-
     @Override
     public String getColumnName(int column) {
         return nomiColonne[column];
@@ -29,7 +28,7 @@ public class TableModelPersona extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 5;    
+        return 3;    
     }
 
     @Override
@@ -48,11 +47,7 @@ public class TableModelPersona extends AbstractTableModel{
             case 1:
                 return persona.getCognome();
             case 2:
-                return persona.getIndirizzo();
-            case 3:
                 return persona.getTelefono();
-            case 4:
-                return persona.getEta();
             default:
                 return null;
         }

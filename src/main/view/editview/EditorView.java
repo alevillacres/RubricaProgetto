@@ -3,19 +3,16 @@ package main.view.editview;
 import javax.swing.*;
 
 import main.controller.EditController;
-import main.controller.MainController;
 
 import java.awt.*;
 
 public class EditorView extends JDialog {
 
-    private JButton btnSalva = new JButton("Salva"); 
-    private JButton btnAnnulla = new JButton("Annulla"); 
+    private JButton btnSalva; 
+    private JButton btnAnnulla; 
 
-    private FormPanel formPanel = new FormPanel();
-    private JPanel buttonPanel = new JPanel();
-
-    private EditController editController;
+    private FormPanel formPanel;
+    private JPanel buttonPanel;
 
     public EditorView(Frame parent, EditController editController) {
 
@@ -23,6 +20,12 @@ public class EditorView extends JDialog {
 
         setSize(new Dimension(350, 520));
         setLayout(new BorderLayout());
+
+        btnSalva = new JButton("Salva");
+        btnAnnulla = new JButton("Annulla"); 
+        formPanel = new FormPanel();
+        buttonPanel = new JPanel();
+
         
         add(formPanel, BorderLayout.CENTER);
 

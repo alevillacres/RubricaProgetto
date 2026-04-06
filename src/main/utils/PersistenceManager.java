@@ -9,6 +9,7 @@ import java.util.Vector;
 import main.model.Persona;
 
 public class PersistenceManager {
+	
 
     public static Vector<Persona> caricaInformazioni(File informazioni){
         Vector<Persona> listaPersone = new Vector<>();

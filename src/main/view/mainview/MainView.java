@@ -18,6 +18,7 @@ public class MainView extends JFrame {
 	private TablePanel tablePanel;
 
 	
+	
 	public MainView(MainController mainController) {
 		
 		setTitle("Contatti");
@@ -61,10 +62,14 @@ public class MainView extends JFrame {
 		return eliminaPersona;
 	}
 
+	public TablePanel getTablePanel() {
+		return tablePanel;
+	}
 
 	public int getIdLine() {
 		return tablePanel.getIdLine();
 	}
 
+	
 	
 }

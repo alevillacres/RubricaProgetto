@@ -14,6 +14,9 @@ public class FormPanel extends JPanel{
     private JTextField textTelefono;
     private JFormattedTextField textEta;
 
+    
+
+
     private SpinnerModel model = new SpinnerNumberModel(18, 0, 120, 1);
     private JSpinner spinnerEta;
     private final JLabel[] listJLabels = {new JLabel("Nome:"), new JLabel("Cognome:"), new JLabel("Indirizzo:"), new JLabel("Telefono:"), new JLabel("Eta:")}; 
@@ -79,6 +82,28 @@ public class FormPanel extends JPanel{
         return (Integer)spinnerEta.getValue();
     }
 
+    public void setTextNome(String textNome) {
+        this.textNome.setText(textNome);
+    }
+
+
+    public void setTextCognome(String textCognome) {
+        this.textCognome.setText(textCognome);
+    }
+
+
+    public void setTextIndirizzo(String textIndirizzo) {
+        this.textIndirizzo.setText(textIndirizzo);
+    }
+
+
+    public void setTextTelefono(String textTelefono) {
+        this.textTelefono.setText(textTelefono);
+    }
+
+    public void setSpinnerEta(int spinnerEta) {
+        this.spinnerEta.setValue(spinnerEta);
+    }
     
 
 }

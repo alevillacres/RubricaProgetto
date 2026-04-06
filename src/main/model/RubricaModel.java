@@ -38,4 +38,8 @@ public class RubricaModel {
     public Persona getPersona(int index) {
 		return listaPersone.get(index);
 	}
+
+    public void modificaPersona(Persona personaModificata, int index) {
+        listaPersone.set(index, personaModificata);
+    }
 }

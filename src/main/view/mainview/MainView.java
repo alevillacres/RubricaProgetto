@@ -18,15 +18,15 @@ public class MainView extends JFrame {
 	private TablePanel tablePanel;
 
 	
-	public MainView() {
+	public MainView(MainController mainController) {
 		
 		setTitle("Contatti");
 		setLayout(new BorderLayout());
 
-		mainController = new MainController();
+		this.mainController = mainController; 
 
 		tablePanel = new TablePanel();
-		tablePanel.setPersone(mainController.getListaPersone());
+		tablePanel.setPersone(this.mainController.getListaPersone());
 
 		pannello = new JPanel();
 		creaPersona = new JButton("Nuovo");
@@ -61,6 +61,10 @@ public class MainView extends JFrame {
 		return eliminaPersona;
 	}
 
-	
+
+	public int getIdLine() {
+		return tablePanel.getIdLine();
+	}
+
 	
 }

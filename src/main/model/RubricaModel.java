@@ -35,5 +35,7 @@ public class RubricaModel {
     	}
     }
     
-    
+    public Persona getPersona(int index) {
+		return listaPersone.get(index);
+	}
 }

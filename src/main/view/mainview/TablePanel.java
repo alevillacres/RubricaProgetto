@@ -25,4 +25,12 @@ public class TablePanel extends JPanel {
     public void aggiorna() {
         tableModelPersona.fireTableDataChanged();
     }
+
+    public TableModelPersona getTableModelPersona() { return tableModelPersona; }
+
+    public int getIdLine() {
+        return table.getSelectedRow();
+    }
+
+    
 }

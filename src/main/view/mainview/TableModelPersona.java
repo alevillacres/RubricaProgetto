@@ -1,6 +1,5 @@
 package main.view.mainview;
 
-import java.time.Period;
 import java.util.Vector;
 
 import javax.swing.table.AbstractTableModel;

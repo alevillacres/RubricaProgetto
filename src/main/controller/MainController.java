@@ -2,9 +2,10 @@ package main.controller;
 
 import java.util.Vector;
 
+import javax.swing.JOptionPane;
+
 import main.model.Persona;
 import main.model.RubricaModel;
-import main.view.editview.EditorView;
 import main.view.mainview.MainView;
 
 public class MainController {
@@ -13,8 +14,10 @@ public class MainController {
 
     public MainController () {
         rubricaModel = new RubricaModel();
-        mainView = new MainView();
+        mainView = new MainView(this);
+
         this.mainView.getCreaPersona().addActionListener(e -> apriEditorNuovo());
+        this.mainView.getModificaPersona().addActionListener(e -> apriEditorModifica());
     }
     
     public Vector<Persona> getListaPersone() {
@@ -22,12 +25,17 @@ public class MainController {
     }
 
     public void apriEditorNuovo() {
-    // Crea la finestra di dialogo passandogli la finestra principale (this.mainView)
-    EditorView editor = new EditorView(mainView);
-    
-    // Mostra la finestra (essendo modale, il codice qui si "ferma" finché non viene chiusa)
-    editor.setVisible(true);
-    
-    // Al termine, se l'utente ha salvato, aggiorniamo il Model e la Tabella
-}
+
+        EditController editController = new EditController(mainView, rubricaModel);    
+    }
+
+    public void apriEditorModifica() {
+        int index = mainView.getIdLine();
+        if(index == -1) {
+            JOptionPane.showMessageDialog(mainView, "Per modificare è necessario prima selezionare una persona.", "Errore", JOptionPane.ERROR_MESSAGE);
+        } else {
+            EditController editController = new EditController(mainView, rubricaModel, index);
+            
+        }
+    }
 }

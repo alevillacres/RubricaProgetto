@@ -2,7 +2,6 @@ package main.view.editview;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.text.NumberFormat;
 
 import javax.swing.*;
 
@@ -12,13 +11,10 @@ public class FormPanel extends JPanel{
     private JTextField textCognome;
     private JTextField textIndirizzo;
     private JTextField textTelefono;
-    private JFormattedTextField textEta;
-
-    
-
 
     private SpinnerModel model = new SpinnerNumberModel(18, 0, 120, 1);
     private JSpinner spinnerEta;
+    
     private final JLabel[] listJLabels = {new JLabel("Nome:"), new JLabel("Cognome:"), new JLabel("Indirizzo:"), new JLabel("Telefono:"), new JLabel("Eta:")}; 
 
     

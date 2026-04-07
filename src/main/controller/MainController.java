@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 
 import main.model.Persona;
 import main.model.RubricaModel;
-import main.utils.PersistenceManager;
 import main.view.mainview.MainView;
 
 public class MainController {

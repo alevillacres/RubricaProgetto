@@ -15,7 +15,7 @@ public class FormPanel extends JPanel{
     private SpinnerModel model = new SpinnerNumberModel(18, 0, 120, 1);
     private JSpinner spinnerEta;
     
-    private final JLabel[] listJLabels = {new JLabel("Nome:"), new JLabel("Cognome:"), new JLabel("Indirizzo:"), new JLabel("Telefono:"), new JLabel("Eta:")}; 
+    private final JLabel[] listJLabels = {new JLabel("Nome:    "), new JLabel("Cognome:    "), new JLabel("Indirizzo:    "), new JLabel("Telefono:    "), new JLabel("Eta:    ")}; 
 
     
     public FormPanel() {
@@ -38,18 +38,22 @@ public class FormPanel extends JPanel{
 
             gbc.gridx = 0;
             gbc.gridy = i;
+            gbc.anchor = GridBagConstraints.LINE_END;
             
             add(listJLabels[i], gbc);
 
             gbc.gridx = 1;
+            gbc.anchor = GridBagConstraints.LINE_START;
+
             add(fields[i], gbc);
         }
             gbc.gridx = 0;
             gbc.gridy = listJLabels.length - 1;
-
+            gbc.anchor = GridBagConstraints.LINE_END;
             add(listJLabels[listJLabels.length - 1], gbc);
 
             gbc.gridx = 1;
+            gbc.anchor = GridBagConstraints.LINE_START;
             add(spinnerEta, gbc);
     }
 

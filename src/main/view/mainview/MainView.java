@@ -3,6 +3,8 @@ package main.view.mainview;
 import java.awt.BorderLayout;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.JTableHeader;
 
 import main.controller.MainController;
 
@@ -13,9 +15,8 @@ public class MainView extends JFrame {
 	private JButton creaPersona;
 	private JButton modificaPersona;
 	private JButton eliminaPersona;
-	private JPanel pannello;
-
 	private TablePanel tablePanel;
+	private JToolBar toolBar;
 
 	
 	
@@ -28,20 +29,38 @@ public class MainView extends JFrame {
 
 		tablePanel = new TablePanel();
 		tablePanel.setPersone(this.mainController.getListaPersone());
+		tablePanel.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-		pannello = new JPanel();
+
+		toolBar = new JToolBar();
+		toolBar.setFloatable(false);
+		toolBar.setBorder(new EmptyBorder(5, 10, 5, 10));
+
+
 		creaPersona = new JButton("Nuovo");
+		creaPersona.setIcon(new ImageIcon(getClass().getResource("/resources/icons/add.png")));
+		creaPersona.setToolTipText("Crea un nuovo contatto");
+
 		modificaPersona = new JButton("Modifica");
+		modificaPersona.setIcon(new ImageIcon(getClass().getResource("/resources/icons/edit.png")));
+		modificaPersona.setToolTipText("Modifica contatto");
+
+
 		eliminaPersona = new JButton("Elimina");
+		eliminaPersona.setIcon(new ImageIcon(getClass().getResource("/resources/icons/trash.png")));
+		eliminaPersona.setToolTipText("Elimina contatto");
+		
+		toolBar.add(creaPersona);
+		toolBar.addSeparator();
+		toolBar.add(modificaPersona);
+		toolBar.addSeparator();
+		toolBar.add(eliminaPersona);
 
 		
-		pannello.add(creaPersona);
-		pannello.add(modificaPersona);
-		pannello.add(eliminaPersona);
-
+		add(toolBar, BorderLayout.NORTH);
 		add(tablePanel, BorderLayout.CENTER);
-		add(pannello, BorderLayout.SOUTH);
 
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(500, 500);
 		setVisible(true);
@@ -69,7 +88,4 @@ public class MainView extends JFrame {
 	public int getIdLine() {
 		return tablePanel.getIdLine();
 	}
-
-	
-	
 }

@@ -1,10 +1,10 @@
 package main;
 
-import main.controller.MainController;
+import main.controller.LoginController;
+
 
 public class AppRubrica {
     public static void main(String[] args) {
-        MainController mainController = new MainController();
-
+        LoginController loginController = new LoginController();    
     }
 }

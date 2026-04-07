@@ -1,9 +1,11 @@
 package main.view.mainview;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.util.Vector;
 
 import javax.swing.*;
+import javax.swing.table.JTableHeader;
 
 import main.model.Persona;
 public class TablePanel extends JPanel {
@@ -13,6 +15,10 @@ public class TablePanel extends JPanel {
     public TablePanel(){
         tableModelPersona = new TableModelPersona();
         table = new JTable(tableModelPersona);
+        
+        JTableHeader header = table.getTableHeader();
+        header.setFont(header.getFont().deriveFont(Font.BOLD));
+
 
         setLayout(new BorderLayout());
         add(new JScrollPane(table), BorderLayout.CENTER);

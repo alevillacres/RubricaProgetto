@@ -19,6 +19,7 @@ public class EditController{
         editorView = new EditorView(mainView, this);
 
         this.editorView.getBtnSalva().addActionListener(e -> aggiungiPersona());
+        this.editorView.getBtnAnnulla().addActionListener(e -> chiudiEditor());
 
         editorView.setVisible(true);
     }
@@ -39,6 +40,7 @@ public class EditController{
         this.editorView.getFormPanel().setSpinnerEta(p.getEta());
 
         this.editorView.getBtnSalva().addActionListener(e -> modificaPersona(index));
+        this.editorView.getBtnAnnulla().addActionListener(e -> chiudiEditor());
 
         editorView.setVisible(true);
     }

@@ -14,6 +14,8 @@ public class LoginController {
         utente = new Utente(null, null);
 
         this.loginView.getLoginButton().addActionListener(e -> enter());
+
+        this.loginView.setVisible(true);
     }
 
     private void enter() {

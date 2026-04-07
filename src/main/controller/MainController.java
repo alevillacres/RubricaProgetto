@@ -19,6 +19,8 @@ public class MainController {
         this.mainView.getCreaPersona().addActionListener(e -> apriEditorNuovo());
         this.mainView.getModificaPersona().addActionListener(e -> apriEditorModifica());
         this.mainView.getEliminaPersona().addActionListener(e -> eliminaPersona());
+
+        this.mainView.setVisible(true);
     }
     
     public Vector<Persona> getListaPersone() {
@@ -27,7 +29,7 @@ public class MainController {
 
     public void apriEditorNuovo() {
 
-        EditController editController = new EditController(mainView, rubricaModel);    
+        new EditController(mainView, rubricaModel);    
     }
 
     public void apriEditorModifica() {
@@ -35,7 +37,7 @@ public class MainController {
         if(index == -1) {
             JOptionPane.showMessageDialog(mainView, "Per modificare è necessario prima selezionare una persona.", "Errore", JOptionPane.ERROR_MESSAGE);
         } else {
-            EditController editController = new EditController(mainView, rubricaModel, index);
+            new EditController(mainView, rubricaModel, index);
             
         }
     }

@@ -5,6 +5,6 @@ import main.controller.LoginController;
 
 public class AppRubrica {
     public static void main(String[] args) {
-        LoginController loginController = new LoginController();    
+        new LoginController();    
     }
 }

@@ -1,3 +1,7 @@
 Steve;Jobs;via Cupertino 13;0612344;56
 Bill;Gates;via Redmond 10;06688989;60
 Babbo;Natale;via del Polo Nord;00000111;99
+alessandro;Villacres;corso Giulio 3;2223334445;24
+Mary;Verdi;via attilio 32;2634715789;36
+leon;dashi;via scarlatti 32;33223466;22
+javier;burbano;piazza bengasi 3;234567876;34

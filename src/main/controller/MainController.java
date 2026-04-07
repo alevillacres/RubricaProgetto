@@ -44,13 +44,20 @@ public class MainController {
 
     public void eliminaPersona(){
         int index = mainView.getIdLine();
-        if(index == -1) {
+    
+        if (index == -1) {
             JOptionPane.showMessageDialog(mainView, "Per eliminare è necessario prima selezionare una persona.", "Errore", JOptionPane.ERROR_MESSAGE);
         } else {
-            this.rubricaModel.eliminaPersona(index);   
+            Persona p = rubricaModel.getPersona(index);
             
-            this.mainView.getTablePanel().aggiorna();
+            String messaggio = "Sei sicuro di voler eliminare " + p.getNome() + " " + p.getCognome() + "?";
+            
+            int risposta = JOptionPane.showConfirmDialog(mainView, messaggio, "Conferma Eliminazione", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
+            if (risposta == JOptionPane.YES_OPTION) {
+                this.rubricaModel.eliminaPersona(index);   
+                this.mainView.getTablePanel().aggiorna();
+            }
         }
     }
 }

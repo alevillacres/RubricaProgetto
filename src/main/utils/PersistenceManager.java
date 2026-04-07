@@ -47,4 +47,15 @@ public class PersistenceManager {
 
         return listaPersone;
     }
+
+	public static void salvaInformazioni(File file, Vector<Persona> lista) {
+
+		try (java.io.PrintStream ps = new java.io.PrintStream(file)) {
+        for (Persona p : lista) {
+            ps.println(p.toString()); 
+        }
+    } catch (java.io.FileNotFoundException e) {
+        System.err.println("Errore nel salvataggio: " + e.getMessage());
+    }
+}
 }

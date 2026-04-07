@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 import main.model.Persona;
 import main.model.RubricaModel;
+import main.utils.PersistenceManager;
 import main.view.mainview.MainView;
 
 public class MainController {
@@ -48,6 +49,7 @@ public class MainController {
             this.rubricaModel.eliminaPersona(index);   
             
             this.mainView.getTablePanel().aggiorna();
+
         }
     }
 }
